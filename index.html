@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+	<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Timesheet</title><meta name="generator" content="Studio 3 http://aptana.com/"><meta name="author" content="Anonymous">
+		<!-- Date: 2011-05-02 -->
+		<script type="text/javascript" src="functions.js">
+		</script>
+		<script type="text/javascript">
+			function doData(url) {
+				getData(url);
+				alert("OK!");
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Timesheet Application</h1>
+		<p>
+			Welcome to the timesheet application demo for company X.
+			Please use the navigation menu buttons to register data,
+			display reports for the projects and view stats about the hours worked.
+		</p>
+		<p>
+			You can reset the data or create mockup data by using the following buttons:
+			<form>
+				<input type="button" value="Reset Data!" onclick="doData('reset.php')"/>
+				<input type="button" value="Mockup Data!" onclick="doData('mockup.php')"/>
+
+			</form>
+		<p>
+		<h3>Navigation menu:</h3>
+		<form>
+			<input type="button" value="Register" onclick="action1('register.html')"/>
+			<input type="button" value="Reports" onclick="action1('report.html')"/>
+			<input type="button" value="Stats" onclick="action1('stats.html')"/>
+		</form>
+	</body>
+</html>

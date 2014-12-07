@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+	<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Timesheet</title><meta name="generator" content="Studio 3 http://aptana.com/"><meta name="author" content="Anonymous">
+		<!-- Date: 2011-05-02 -->
+		<script type="text/javascript " src="functions.js">
+		</script>
+		<script type="text/javascript">
+		
+		function addProj(name, url) {
+				var url2 = url+"?name="+name;
+				getData(url2);
+				alert("Project added!");
+				getProj();
+			}
+
+			function getProj() {
+				getData('read.php');
+			}
+
+			function regData(project, date, hours, url) {
+				var digit = /^\d{1,}$/;
+				if (digit.test(hours)) {
+				var url3 = url+"?project="+project+"&date="+date+"&hours="+hours;
+				getData(url3);
+				alert("Submit of hours OK!");
+				}
+				else alert("Illegal value!")
+			}
+			</script>
+	</head>
+	<body>
+		<h1>Add new project or select from list, then add hours and date:</h1>
+		<form>
+			Add new:
+			<input type="text" name="newproj" onkeyup="onKeyPressed(event)"/>
+			<input type="button" value="Submit" onclick="addProj(newproj.value, 'addproj.php')"/>
+			<p>
+				<p>
+				<div>
+					Project:
+					<select name="Project" id="curProj">
+						<option>***Choose Project***</option>
+						<script type="text/javascript">
+							getProj();
+						</script>
+					</select>
+				</div>
+				<div>
+					Date:
+					<select name="Date" id="curDate">
+						<script type="text/javascript">
+							getDate('date.xml');
+						</script>
+					</select>
+				</div>
+				<div>
+					Hours:
+					<input type="text" name="hours" onkeyup="onKeyPressed(event)"/>
+					<input type="button" value="Submit" onclick="regData(curProj.value, curDate.value, hours.value, 'regdata.php')"/>
+				</div>
+		</form>
+		<p>
+				<h3>Navigation menu:</h3>
+		<form>
+			<input type="button" value="Index" onclick="action1('index.html')"/>
+			<input type="button" value="Reports" onclick="action1('report.html')"/>
+			<input type="button" value="Stats" onclick="action1('stats.html')"/>
+		</form>
+	</body>
+</html>

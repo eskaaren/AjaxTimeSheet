@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Timesheet</title>
+		<meta name="generator" content="Studio 3 http://aptana.com/">
+		<meta name="author" content="Anonymous">
+		<!-- Date: 2011-05-09 -->
+		<script type="text/javascript " src="functions.js">
+		</script>
+		<script type="text/javascript">
+
+		function getProj() {
+				getData('read.php');
+			}
+			
+			function getStats(url)
+			{
+				var url2 = url;
+				getData(url2);	
+			}
+			
+</script>
+	</head>
+	<body>
+		<h1>Stats:</h1>
+			<script type="text/javascript">
+				getStats('stats.php')
+			</script>
+		<p>
+			<div id='report'>
+			</div>
+		<br>
+				<h3>Navigation menu:</h3>
+		<form>
+			<input type="button" value="Index" onclick="action1('index.html')"/>
+			<input type="button" value="Register" onclick="action1('register.html')"/>
+			<input type="button" value="Reports" onclick="action1('report.html')"/>
+		</form>
+	</body>
+</html>

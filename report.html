@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+	<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Timesheet</title><meta name="generator" content="Studio 3 http://aptana.com/"><meta name="author" content="Anonymous">
+		<!-- Date: 2011-05-04 -->
+		<script type="text/javascript " src="functions.js">
+		</script>
+		<script type="text/javascript">
+		function setDefaults(){
+	var v = document.getElementById('price');
+    if( v.value ==""){
+        v.value = "0";
+    }
+}
+
+		function getProj() {
+				getData('read.php');
+			}
+			
+			function getReport(url, project, price)
+			{
+				var url2 = url+"?project="+project+"&price="+price;
+				getData(url2);
+				
+			}
+			
+</script>
+
+	</head>
+	<body onLoad="setDefaults();">
+		<h1>Reports and stats:</h1>
+		<form>
+				<div>
+					Project:
+					<select name="Project" id="curProj" onchange="getReport('report.php', curProj.value, price.value)">
+						<option>***Choose Project***</option>
+						<script type="text/javascript">
+							getProj();
+						</script>
+					</select>
+				</div>
+				<div>
+					Price per hour:
+					<input type="text" id="price" onkeyup="getReport('report.php', curProj.value, price.value)"/>
+				</div>
+		</form>
+		<p>
+			<div id='report'>
+			</div>
+		<br>
+				<h3>Navigation menu:</h3>
+		<form>
+			<input type="button" value="Index" onclick="action1('index.html')"/>
+			<input type="button" value="Register" onclick="action1('register.html')"/>
+			<input type="button" value="Stats" onclick="action1('stats.html')"/>
+		</form>
+	</body>
+</html>
